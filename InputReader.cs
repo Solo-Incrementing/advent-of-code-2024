@@ -12,5 +12,10 @@ namespace advent_of_code_2024
         {
             return File.ReadAllLines(path);
         }
+
+        public static string ReadAllText(string path)
+        {
+            return File.ReadAllText(path);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using advent_of_code_2024.Solutions;
+using System.Text.RegularExpressions;
 
 namespace advent_of_code_2024
 {
@@ -13,7 +14,8 @@ namespace advent_of_code_2024
             //Console.WriteLine(Day2.CountOfSafeReports(InputReader.ReadAllLines(@"..\..\..\Inputs\Day2\example.txt")));
             //Console.WriteLine(Day2.CountOfSafeReports(InputReader.ReadAllLines(@"..\..\..\Inputs\Day2\data.txt
 
-            Console.WriteLine(Day3.MethodName(InputReader.ReadAllLines(@"..\..\..\Inputs\Day2\data.txt")));
+            Console.WriteLine(Day3.SolveCorruptedMuls(InputReader.ReadAllText(@"..\..\..\Inputs\Day3\example.txt")));
+            Console.WriteLine(Day3.SolveCorruptedMuls(InputReader.ReadAllText(@"..\..\..\Inputs\Day3\data.txt")));
         }
     }
 }
