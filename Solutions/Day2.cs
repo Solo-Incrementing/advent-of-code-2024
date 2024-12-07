@@ -9,18 +9,17 @@ namespace advent_of_code_2024
 {
     internal class Day2
     {
-        public static int[] ReportLevels(string report)
+        public static List<int> ReportLevels(string report)
         {
-            return report.Split(" ").Select(int.Parse).ToArray();
+            return report.Split(" ").Select(int.Parse).ToList();
         }
 
-        public static bool IsReportSafe(string report)
+        public static bool IsReportSafe(List<int> levels)
         {
-            int[] levels = ReportLevels(report);
             bool ascendingSafe = true;
             bool descendingSafe = true;
 
-            for (int i = 0; i < levels.Length - 1; i++)
+            for (int i = 0; i < levels.Count - 1; i++)
             {
                 int currentNum = levels[i];
                 int nextNum = levels[i + 1];
@@ -47,7 +46,7 @@ namespace advent_of_code_2024
 
             foreach (string report in reports)
             {
-                if (IsReportSafe(report)) { safeReports++; }
+                if (IsReportSafe(ReportLevels(report))) { safeReports++; }
             }
 
             return safeReports;
@@ -55,7 +54,26 @@ namespace advent_of_code_2024
 
         public static int CountSafeReportsWithTolerance(string[] reports)
         {
-            return 0;
+            int safeReports = 0;
+
+            foreach (string report in reports)
+            {
+                bool atLeastOneSafe = false;
+
+                List<int> untoleratedReport = ReportLevels(report);
+
+                for (int i = 0; i < untoleratedReport.Count; i++)
+                {
+                    List<int> toleratedReport = ReportLevels(report);
+                    toleratedReport.RemoveAt(i);
+
+                    if (IsReportSafe(toleratedReport)) atLeastOneSafe = true;
+                }
+
+                if (atLeastOneSafe) { safeReports++; }
+            }
+
+            return safeReports;
         }
     }
 }

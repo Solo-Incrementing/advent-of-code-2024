@@ -14,6 +14,8 @@ namespace advent_of_code_2024
 
             Console.WriteLine(Day2.CountSafeReports(InputReader.ReadAllLines(@"..\..\..\Inputs\Day2\example.txt")));
             Console.WriteLine(Day2.CountSafeReports(InputReader.ReadAllLines(@"..\..\..\Inputs\Day2\data.txt")));
+            Console.WriteLine(Day2.CountSafeReportsWithTolerance(InputReader.ReadAllLines(@"..\..\..\Inputs\Day2\example.txt")));
+            Console.WriteLine(Day2.CountSafeReportsWithTolerance(InputReader.ReadAllLines(@"..\..\..\Inputs\Day2\data.txt")));
 
             //Console.WriteLine(Day2.ReportLevels(InputReader.ReadAllLines(@"..\..\..\Inputs\Day2\example.txt")[0]));
 
