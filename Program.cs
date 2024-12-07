@@ -30,6 +30,8 @@ namespace advent_of_code_2024
             //Console.WriteLine(Day5.SumIncorrectUpdatesAfterOrdering(InputReader.ReadAllLines(@"..\..\..\Solutions\Day5\Inputs\example.txt")));
             //Console.WriteLine(Day5.SumIncorrectUpdatesAfterOrdering(InputReader.ReadAllLines(@"..\..\..\Solutions\Day5\Inputs\data.txt")));
 
+            Console.WriteLine(Day6.CountDistinctGuardPositions(InputReader.ReadAllLines(@"..\..\..\Solutions\Day6\Inputs\example.txt"),'^','#'));
+            Console.WriteLine(Day6.CountDistinctGuardPositions(InputReader.ReadAllLines(@"..\..\..\Solutions\Day6\Inputs\data.txt"), '^', '#'));
         }
     }
 }
