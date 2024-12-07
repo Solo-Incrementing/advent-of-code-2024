@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace advent_of_code_2024.Solutions
+﻿namespace advent_of_code_2024.Solutions
 {
     internal class Day5
     {
@@ -48,7 +42,7 @@ namespace advent_of_code_2024.Solutions
         {
             Dictionary<int, List<int>> prequisiteMappings = new Dictionary<int, List<int>>();
 
-            for (int i = 0;i < rules.Count;i++)
+            for (int i = 0; i < rules.Count; i++)
             {
                 int[] rule = rules[i].Split("|").Select(int.Parse).ToArray();
 
@@ -65,7 +59,8 @@ namespace advent_of_code_2024.Solutions
             return prequisiteMappings;
         }
 
-        public static List<int> ParseUpdate(string update) {
+        public static List<int> ParseUpdate(string update)
+        {
             return update.Split(",").Select(int.Parse).ToList();
         }
 
@@ -79,7 +74,7 @@ namespace advent_of_code_2024.Solutions
             // all of these numbers must come before our key number
             orderMappings = ParsePageOrderingRules(sections.orderingRules);
 
-            
+
             foreach (var update in sections.updates)
             {
                 List<int> pageNumbers = ParseUpdate(update);
@@ -116,7 +111,7 @@ namespace advent_of_code_2024.Solutions
                     else
                     {
                         Console.WriteLine("Even update encountered");
-                        correctUpdatedMiddleNumSum = pageNumbers[updateSize / 2] + pageNumbers[(updateSize) / 2 + 1] / 2;
+                        correctUpdatedMiddleNumSum = pageNumbers[updateSize / 2] + pageNumbers[updateSize / 2 + 1] / 2;
                     }
                 }
 
@@ -201,7 +196,7 @@ namespace advent_of_code_2024.Solutions
                     else
                     {
                         Console.WriteLine("Even update encountered");
-                        correctUpdatedMiddleNumSum = pageNumbers[updateSize / 2] + pageNumbers[(updateSize) / 2 + 1] / 2;
+                        correctUpdatedMiddleNumSum = pageNumbers[updateSize / 2] + pageNumbers[updateSize / 2 + 1] / 2;
                     }
                 }
 

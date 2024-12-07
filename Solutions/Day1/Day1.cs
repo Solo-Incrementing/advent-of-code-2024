@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace advent_of_code_2024
+﻿namespace advent_of_code_2024.Solutions
 {
     internal class Day1
     {
@@ -15,7 +9,7 @@ namespace advent_of_code_2024
 
             foreach (string line in lines)
             {
-                string[] numberStrings  = line.Split(" ");
+                string[] numberStrings = line.Split(" ");
                 int leftNum = int.Parse(numberStrings[0]);
                 int rightNum = int.Parse(numberStrings[numberStrings.Length - 1]);
 

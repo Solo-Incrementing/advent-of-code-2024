@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace advent_of_code_2024.Solutions
 {
@@ -12,7 +6,8 @@ namespace advent_of_code_2024.Solutions
     {
         private static int InstructionType(string instruction)
         {
-            if (Regex.IsMatch(instruction, @"^don't\(\)$")){
+            if (Regex.IsMatch(instruction, @"^don't\(\)$"))
+            {
                 return 1;
             }
             else if (Regex.IsMatch(instruction, @"^do\(\)$"))
@@ -48,7 +43,7 @@ namespace advent_of_code_2024.Solutions
             int sum = 0;
 
             IEnumerable<string> instructions = GetInstructions(corruptedMemory);
-            
+
             foreach (string instruction in instructions)
             {
                 switch (InstructionType(instruction))

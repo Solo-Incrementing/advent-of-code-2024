@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace advent_of_code_2024.Solutions
+﻿namespace advent_of_code_2024.Solutions
 {
     internal class Day4
     {
@@ -23,7 +16,8 @@ namespace advent_of_code_2024.Solutions
             public override string ToString() => $"({X}, {Y})";
         }
 
-        public static int CountOfWordSearch(string[] characterGrid, string searchWord) {
+        public static int CountOfWordSearch(string[] characterGrid, string searchWord)
+        {
             int searchCount = 0;
             Vector2[] directions = {
                 new Vector2(1, 1),
@@ -36,7 +30,8 @@ namespace advent_of_code_2024.Solutions
                 new Vector2(0, 1)
             };
 
-            for (int row = 0; row < characterGrid.Length; row++) {
+            for (int row = 0; row < characterGrid.Length; row++)
+            {
                 for (int col = 0; col < characterGrid[row].Length; col++)
                 {
                     Vector2 startPosition = new Vector2(col, row);
@@ -60,7 +55,7 @@ namespace advent_of_code_2024.Solutions
                                     newPosition.X >= 0 &&
                                     newPosition.X < characterGrid[row].Length &&
                                     newPosition.Y >= 0 &&
-                                    newPosition.Y < characterGrid.Length) 
+                                    newPosition.Y < characterGrid.Length)
                                 {
                                     if (characterGrid[newPosition.X][newPosition.Y] != searchWord[i])
                                     {
@@ -91,7 +86,7 @@ namespace advent_of_code_2024.Solutions
         // search word must have an odd number of letters
         public static int oddWordCrossSearch(string[] characterGrid, string searchWord)
         {
-            if ((searchWord.Length % 2 == 0) && searchWord.Length <= 2) return 0;
+            if (searchWord.Length % 2 == 0 && searchWord.Length <= 2) return 0;
 
             int searchCount = 0;
             Vector2[] directions = {
@@ -105,7 +100,7 @@ namespace advent_of_code_2024.Solutions
             {
                 for (int col = 0; col < characterGrid[row].Length; col++)
                 {
-                    if (characterGrid[col][row] == searchWord[(searchWord.Length - 1)/ 2])
+                    if (characterGrid[col][row] == searchWord[(searchWord.Length - 1) / 2])
                     {
                         int foundWordCount = 0;
 
@@ -118,7 +113,7 @@ namespace advent_of_code_2024.Solutions
                                 col + directions[directionIndex].X * (searchWord.Length - 1) / 2,
                                 row + directions[directionIndex].Y * (searchWord.Length - 1) / 2
                                 );
-                            
+
                             bool wordFound = true;
 
                             // currentDirection is in the opposite direction because we are going inwards from the edge of the cross

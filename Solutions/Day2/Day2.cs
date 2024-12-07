@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace advent_of_code_2024
+namespace advent_of_code_2024.Solutions
 {
     internal class Day2
     {
@@ -25,13 +25,13 @@ namespace advent_of_code_2024
                 int nextNum = levels[i + 1];
 
                 // check to falsify ascending
-                if (currentNum >= nextNum || (nextNum - currentNum) > 3)
+                if (currentNum >= nextNum || nextNum - currentNum > 3)
                 {
                     ascendingSafe = false;
                 }
 
                 // check to falsify descending
-                if (currentNum <= nextNum || (currentNum - nextNum) > 3)
+                if (currentNum <= nextNum || currentNum - nextNum > 3)
                 {
                     descendingSafe = false;
                 }
