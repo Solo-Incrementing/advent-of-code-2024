@@ -27,8 +27,11 @@ namespace advent_of_code_2024
 
             //var parsedSections = Day5.ParsePageOrderingRules(Day5.ParseSections(InputReader.ReadAllLines(@"..\..\..\Inputs\Day5\example.txt")).orderingRules);
 
-            Console.WriteLine(Day5.SumCorrectlyOrderedUpdates(InputReader.ReadAllLines(@"..\..\..\Inputs\Day5\example.txt")));
-            Console.WriteLine(Day5.SumCorrectlyOrderedUpdates(InputReader.ReadAllLines(@"..\..\..\Inputs\Day5\data.txt")));
+            //Console.WriteLine(Day5.SumCorrectlyOrderedUpdates(InputReader.ReadAllLines(@"..\..\..\Inputs\Day5\example.txt")));
+            //Console.WriteLine(Day5.SumCorrectlyOrderedUpdates(InputReader.ReadAllLines(@"..\..\..\Inputs\Day5\data.txt")));
+
+            Console.WriteLine(Day5.SumIncorrectUpdatesAfterOrdering(InputReader.ReadAllLines(@"..\..\..\Inputs\Day5\example.txt")));
+            Console.WriteLine(Day5.SumIncorrectUpdatesAfterOrdering(InputReader.ReadAllLines(@"..\..\..\Inputs\Day5\data.txt")));
         }
     }
 }
