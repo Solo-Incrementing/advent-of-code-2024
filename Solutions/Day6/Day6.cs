@@ -12,7 +12,7 @@ namespace advent_of_code_2024.Solutions
                    position.Y < yBound;
         }
 
-        public static int CountDistinctGuardPositions(string[] map, char guard, char obstacle)
+        public static Vector2Int CountDistinctGuardPositions(string[] map, char guard, char obstacle)
         {
             Dictionary<Vector2Int, Vector2Int> turnRight = new Dictionary<Vector2Int, Vector2Int>
             {
@@ -47,13 +47,17 @@ namespace advent_of_code_2024.Solutions
 
             List<Vector2Int> visitedPositions = new List<Vector2Int>();
 
-            int safetyCount = 100000;
+            int revisitCount = 0;
 
-            while (safetyCount > 0)
+            while (revisitCount < (visitedPositions.Count + 1) * 2)
             {
                 if (!visitedPositions.Contains(currentPosition))
                 {
                     visitedPositions.Add(currentPosition);
+                }
+                else
+                {
+                    revisitCount++;
                 }
 
                 Vector2Int nextPosition = currentPosition + currentDirection;
@@ -76,11 +80,40 @@ namespace advent_of_code_2024.Solutions
                 }
 
                 currentPosition = nextPosition;
-
-                safetyCount--;
             }
 
-            return visitedPositions.Count;
+            return new Vector2Int(visitedPositions.Count, revisitCount);
+        }
+
+        public static int CountAllPossibleObstaclePositionsForLoop(string[] map, char guard, char obstacle)
+        {
+            int possiblePositions = 0;
+
+            for (int i = 0; i < map.Length; i++)
+            {
+                for (int j = 0; j < map[i].Length; j++)
+                {
+                    if (map[i][j] != guard && map[i][j] != obstacle)
+                    {
+                        string[] newMap = map.ToArray();
+
+                        char[] rowCharacters = map[i].ToCharArray();
+                        rowCharacters[j] = obstacle;
+                        newMap[i] = new string(rowCharacters);
+
+                        Vector2Int guardPositions = CountDistinctGuardPositions(newMap, guard, obstacle);
+
+                        if (guardPositions.Y >= (guardPositions.X + 1) * 2)
+                        {
+                            possiblePositions++;
+                        }
+
+                        Console.WriteLine($"Position X:{j} Y:{i} checked");
+                    }
+                }
+            }
+
+            return possiblePositions;
         }
     }
 }
