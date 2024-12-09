@@ -44,8 +44,11 @@ namespace advent_of_code_2024
             //    (InputReader.ReadAllLines(@"..\..\..\Solutions\Day6\Inputs\data.txt"),
             //    '^', '#'));
 
-            Console.WriteLine(Day7.TotalCalibrationResult(
-                InputReader.ReadAllLines(@"..\..\..\Solutions\Day7\Inputs\example.txt")));
+            //Console.WriteLine(Day7.TotalCalibrationResult(
+            //    InputReader.ReadAllLines(@"..\..\..\Solutions\Day7\Inputs\example.txt")));
+
+            Console.WriteLine(Day9.SolveProblem(InputReader.ReadAllText(@"..\..\..\Solutions\Day9\Inputs\example.txt")));
+            Console.WriteLine(Day9.SolveProblem(InputReader.ReadAllText(@"..\..\..\Solutions\Day9\Inputs\data.txt")));
         }
     }
 }
