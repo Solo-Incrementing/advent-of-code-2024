@@ -6,6 +6,9 @@ namespace advent_of_code_2024
     {
         static void Main(string[] args)
         {
+            AdventSolver adventSolver = new AdventSolver();
+
+            adventSolver.SolveProblem("2");
             //Console.WriteLine(Day1.SumDifferences(InputReader.ReadAllLines(@"..\..\..\Solutions\Day1\Inputs\example.txt")));
             //Console.WriteLine(Day1.SumDifferences(InputReader.ReadAllLines(@"..\..\..\Solutions\Day1\Inputs\data.txt")));
             //Console.WriteLine(Day1.SumSimilarityScores(InputReader.ReadAllLines(@"..\..\..\Solutions\Day1\Inputs\example.txt")));
@@ -47,8 +50,8 @@ namespace advent_of_code_2024
             //Console.WriteLine(Day7.TotalCalibrationResult(
             //    InputReader.ReadAllLines(@"..\..\..\Solutions\Day7\Inputs\example.txt")));
 
-            Console.WriteLine(Day9.SolveProblem(InputReader.ReadAllText(@"..\..\..\Solutions\Day9\Inputs\example.txt")));
-            Console.WriteLine(Day9.SolveProblem(InputReader.ReadAllText(@"..\..\..\Solutions\Day9\Inputs\data.txt")));
+            // Console.WriteLine(Day9.SolveProblem(InputReader.ReadAllText(@"..\..\..\Solutions\Day9\Inputs\example.txt")));
+            // Console.WriteLine(Day9.SolveProblem(InputReader.ReadAllText(@"..\..\..\Solutions\Day9\Inputs\data.txt")));
         }
     }
 }

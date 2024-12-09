@@ -1,6 +1,6 @@
 ﻿namespace advent_of_code_2024.Solutions
 {
-    internal class Day1
+    internal class Day1 : IDay
     {
         public static int SumDifferences(string[] lines)
         {
@@ -66,6 +66,12 @@
             }
 
             return sum;
+        }
+
+        public static void SolveProblem(string[] input)
+        {
+            Console.WriteLine(SumDifferences(input));
+            Console.WriteLine(SumSimilarityScores(input));
         }
     }
 }

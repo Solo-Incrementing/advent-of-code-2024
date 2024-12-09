@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace advent_of_code_2024.Solutions
 {
-    internal class Day2
+    internal class Day2 : IDay
     {
         public static List<int> ReportLevels(string report)
         {
@@ -74,6 +74,12 @@ namespace advent_of_code_2024.Solutions
             }
 
             return safeReports;
+        }
+
+        public static void SolveProblem(string[] input)
+        {
+            Console.WriteLine(CountSafeReports(input));
+            Console.WriteLine(CountSafeReportsWithTolerance(input));
         }
     }
 }
