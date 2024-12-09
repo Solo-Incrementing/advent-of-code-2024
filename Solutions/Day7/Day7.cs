@@ -2,19 +2,19 @@
 
 namespace advent_of_code_2024.Solutions
 {
-    internal class Day7
+    internal class Day7 : IDay
     {
-        public static int ParseTargetValue(string equation)
+        private static int ParseTargetValue(string equation)
         {
             return int.Parse(equation.Split(':')[0]);
         }
 
-        public static List<int> ParseOperands(string equation)
+        private static List<int> ParseOperands(string equation)
         {
             return equation.Split(": ")[1].Split(' ').Select(int.Parse).ToList();
         }
 
-        public void GenerateOperatorPermutations(
+        private void GenerateOperatorPermutations(
             List<string> operators,
             int numberOfOperators,
             ref string current,
@@ -34,7 +34,7 @@ namespace advent_of_code_2024.Solutions
                 }
             }
         }
-        public static bool EquationIsTrue(string equation, out int targetValue)
+        private static bool EquationIsTrue(string equation, out int targetValue)
         {
             targetValue = ParseTargetValue(equation);
             List<int> operands = ParseOperands(equation);
@@ -42,7 +42,7 @@ namespace advent_of_code_2024.Solutions
             return true;
         }
 
-        public static int TotalCalibrationResult(string[] input)
+        private static int TotalCalibrationResult(string[] input)
         {
             int result = 0;
 
@@ -55,6 +55,11 @@ namespace advent_of_code_2024.Solutions
             }
 
             return result;
+        }
+
+        public static void SolveProblem(string[] input)
+        {
+            Console.WriteLine(TotalCalibrationResult(input));
         }
     }
 }

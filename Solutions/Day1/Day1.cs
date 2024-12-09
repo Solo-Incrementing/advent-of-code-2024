@@ -2,7 +2,7 @@
 {
     internal class Day1 : IDay
     {
-        public static int SumDifferences(string[] lines)
+        private static int SumDifferences(string[] lines)
         {
             List<int> leftNumbersAscending = [];
             List<int> rightNumbersAscending = [];
@@ -29,7 +29,7 @@
             return sum;
         }
 
-        public static int SumSimilarityScores(string[] lines)
+        private static int SumSimilarityScores(string[] lines)
         {
             Dictionary<int, int> numberFrequency = new Dictionary<int, int>();
             List<int> leftNumbers = [];

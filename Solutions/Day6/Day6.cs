@@ -2,9 +2,9 @@
 
 namespace advent_of_code_2024.Solutions
 {
-    internal class Day6
+    internal class Day6 : IDay
     {
-        public static bool PositionInsideBounds(Vector2Int position, int xBound, int yBound)
+        private static bool PositionInsideBounds(Vector2Int position, int xBound, int yBound)
         {
             return position.X >= 0 &&
                    position.Y >= 0 &&
@@ -12,7 +12,7 @@ namespace advent_of_code_2024.Solutions
                    position.Y < yBound;
         }
 
-        public static Vector2Int CountDistinctGuardPositions(string[] map, char guard, char obstacle)
+        private static Vector2Int CountDistinctGuardPositions(string[] map, char guard, char obstacle)
         {
             Dictionary<Vector2Int, Vector2Int> turnRight = new Dictionary<Vector2Int, Vector2Int>
             {
@@ -85,7 +85,7 @@ namespace advent_of_code_2024.Solutions
             return new Vector2Int(visitedPositions.Count, revisitCount);
         }
 
-        public static int CountAllPossibleObstaclePositionsForLoop(string[] map, char guard, char obstacle)
+        private static int CountAllPossibleObstaclePositionsForLoop(string[] map, char guard, char obstacle)
         {
             int possiblePositions = 0;
 
@@ -114,6 +114,12 @@ namespace advent_of_code_2024.Solutions
             }
 
             return possiblePositions;
+        }
+
+        public static void SolveProblem(string[] input)
+        {
+            Console.WriteLine(CountDistinctGuardPositions(input, '^', '#'));
+            Console.WriteLine(CountAllPossibleObstaclePositionsForLoop(input, '^', '#'));
         }
     }
 }

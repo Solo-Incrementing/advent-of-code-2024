@@ -8,16 +8,7 @@ namespace advent_of_code_2024
         {
             AdventSolver adventSolver = new AdventSolver();
 
-            adventSolver.SolveProblem("2");
-            //Console.WriteLine(Day1.SumDifferences(InputReader.ReadAllLines(@"..\..\..\Solutions\Day1\Inputs\example.txt")));
-            //Console.WriteLine(Day1.SumDifferences(InputReader.ReadAllLines(@"..\..\..\Solutions\Day1\Inputs\data.txt")));
-            //Console.WriteLine(Day1.SumSimilarityScores(InputReader.ReadAllLines(@"..\..\..\Solutions\Day1\Inputs\example.txt")));
-            //Console.WriteLine(Day1.SumSimilarityScores(InputReader.ReadAllLines(@"..\..\..\Solutions\Day1\Inputs\data.txt")));
-
-            //Console.WriteLine(Day2.CountSafeReports(InputReader.ReadAllLines(@"..\..\..\Solutions\Day2\Inputs\example.txt")));
-            //Console.WriteLine(Day2.CountSafeReports(InputReader.ReadAllLines(@"..\..\..\Solutions\Day2\Inputs\data.txt")));
-            //Console.WriteLine(Day2.CountSafeReportsWithTolerance(InputReader.ReadAllLines(@"..\..\..\Solutions\Day2\Inputs\example.txt")));
-            //Console.WriteLine(Day2.CountSafeReportsWithTolerance(InputReader.ReadAllLines(@"..\..\..\Solutions\Day2\Inputs\data.txt")));
+            adventSolver.SolveProblem("9");
 
             //Console.WriteLine(Day3.SolveCorruptedMuls(InputReader.ReadAllText(@"..\..\..\Solutions\Day3\Inputs\example.txt")));
             //Console.WriteLine(Day3.SolveCorruptedMuls(InputReader.ReadAllText(@"..\..\..\Solutions\Day3\Inputs\data.txt")));

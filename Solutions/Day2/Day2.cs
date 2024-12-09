@@ -14,7 +14,7 @@ namespace advent_of_code_2024.Solutions
             return report.Split(" ").Select(int.Parse).ToList();
         }
 
-        public static bool IsReportSafe(List<int> levels)
+        private static bool IsReportSafe(List<int> levels)
         {
             bool ascendingSafe = true;
             bool descendingSafe = true;
@@ -40,7 +40,7 @@ namespace advent_of_code_2024.Solutions
             return !(ascendingSafe && descendingSafe) && ascendingSafe || descendingSafe;
         }
 
-        public static int CountSafeReports(string[] reports)
+        private static int CountSafeReports(string[] reports)
         {
             int safeReports = 0;
 
@@ -52,7 +52,7 @@ namespace advent_of_code_2024.Solutions
             return safeReports;
         }
 
-        public static int CountSafeReportsWithTolerance(string[] reports)
+        private static int CountSafeReportsWithTolerance(string[] reports)
         {
             int safeReports = 0;
 

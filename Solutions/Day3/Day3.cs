@@ -2,7 +2,7 @@
 
 namespace advent_of_code_2024.Solutions
 {
-    internal class Day3
+    internal class Day3 : IDay
     {
         private static int InstructionType(string instruction)
         {
@@ -37,7 +37,7 @@ namespace advent_of_code_2024.Solutions
                 .Select(match => match.Value).ToList();
         }
 
-        public static int SolveCorruptedMuls(string corruptedMemory)
+        private static int SolveCorruptedMuls(string corruptedMemory)
         {
             bool canMul = true;
             int sum = 0;
@@ -66,6 +66,11 @@ namespace advent_of_code_2024.Solutions
             }
 
             return sum;
+        }
+
+        public static void SolveProblem(string[] input)
+        {
+            Console.WriteLine(SolveCorruptedMuls(input[0]));
         }
     }
 }

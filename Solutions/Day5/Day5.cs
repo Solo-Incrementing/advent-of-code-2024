@@ -1,14 +1,14 @@
 ﻿namespace advent_of_code_2024.Solutions
 {
-    internal class Day5
+    internal class Day5 : IDay
     {
-        public static Dictionary<int, List<int>>? orderMappings;
-        public struct Sections
+        private static Dictionary<int, List<int>>? orderMappings;
+        private struct Sections
         {
             public List<string> orderingRules { get; set; }
             public List<string> updates { get; set; }
         }
-        public static Sections ParseSections(string[] input)
+        private static Sections ParseSections(string[] input)
         {
             Sections sections = new Sections();
 
@@ -38,7 +38,7 @@
             return sections;
         }
 
-        public static Dictionary<int, List<int>> ParsePageOrderingRules(List<string> rules)
+        private static Dictionary<int, List<int>> ParsePageOrderingRules(List<string> rules)
         {
             Dictionary<int, List<int>> prequisiteMappings = new Dictionary<int, List<int>>();
 
@@ -59,12 +59,12 @@
             return prequisiteMappings;
         }
 
-        public static List<int> ParseUpdate(string update)
+        private static List<int> ParseUpdate(string update)
         {
             return update.Split(",").Select(int.Parse).ToList();
         }
 
-        public static int SumCorrectlyOrderedUpdates(string[] input)
+        private static int SumCorrectlyOrderedUpdates(string[] input)
         {
             int correctUpdatedMiddleNumSum = 0;
 
@@ -120,7 +120,7 @@
             return correctUpdatedMiddleNumSum;
         }
 
-        public static bool UpdateSorted(List<int> pageNumbers, Dictionary<int, List<int>> orderMappings)
+        private static bool UpdateSorted(List<int> pageNumbers, Dictionary<int, List<int>> orderMappings)
         {
             bool updateCorrectlyOrdered = true;
 
@@ -146,7 +146,7 @@
             return updateCorrectlyOrdered;
         }
 
-        public static int CompareByOrderMappings(int left, int right)
+        private static int CompareByOrderMappings(int left, int right)
         {
             if (orderMappings.ContainsKey(left))
             {
@@ -167,7 +167,7 @@
             return 0;
         }
 
-        public static int SumIncorrectUpdatesAfterOrdering(string[] input)
+        private static int SumIncorrectUpdatesAfterOrdering(string[] input)
         {
             int correctUpdatedMiddleNumSum = 0;
 
@@ -203,6 +203,12 @@
             }
 
             return correctUpdatedMiddleNumSum;
+        }
+
+        public static void SolveProblem(string[] input)
+        {
+            Console.WriteLine(SumCorrectlyOrderedUpdates(input));
+            Console.WriteLine(SumIncorrectUpdatesAfterOrdering(input));
         }
     }
 }

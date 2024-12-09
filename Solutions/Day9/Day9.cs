@@ -1,8 +1,8 @@
 ﻿namespace advent_of_code_2024.Solutions
 {
-    internal class Day9
+    internal class Day9 : IDay
     {
-        public struct DiskFile
+        private struct DiskFile
         {
             public char Value;
             public int BlockId;
@@ -14,7 +14,7 @@
             }
         }
 
-        public static long SolveProblem(string diskMap)
+        private static long DiskDefragment(string diskMap)
         {
             List<DiskFile> diskFiles = new List<DiskFile>();
 
@@ -94,6 +94,11 @@
             //Console.WriteLine();
 
             return checksum;
+        }
+
+        public static void SolveProblem(string[] input)
+        {
+            Console.WriteLine(DiskDefragment(input[0]));
         }
     }
 }
