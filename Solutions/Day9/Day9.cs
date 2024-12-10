@@ -4,10 +4,10 @@
     {
         private struct DiskFile
         {
-            public char Value;
+            public string Value;
             public int BlockId;
 
-            public DiskFile(char value, int blockId)
+            public DiskFile(string value, int blockId)
             {
                 Value = value;
                 BlockId = blockId;
@@ -26,17 +26,14 @@
                 {
                     if (i % 2 == 0)
                     {
-                        int blockId = (i / 2) % 10;
+                        int blockId = i / 2;
                         string blockIdString = blockId.ToString();
 
-                        for (int k = 0; k < blockIdString.Length; k++)
-                        {
-                            diskFiles.Add(new DiskFile(blockIdString[k], blockId));
-                        }
+                        diskFiles.Add(new DiskFile(blockIdString, blockId));
                     }
                     else
                     {
-                        diskFiles.Add(new DiskFile('.', -1));
+                        diskFiles.Add(new DiskFile(".", -1));
                     }
                 }
             }
@@ -49,26 +46,27 @@
 
             while (leftPointer <= rightPointer)
             {
-                if (diskFiles[leftPointer].Value == '.')
+                if (diskFiles[leftPointer].Value == ".")
                 {
-                    if (diskFiles[rightPointer].Value != '.')
+                    if (diskFiles[rightPointer].Value != ".")
                     {
                         compressedDiskFiles.Add(diskFiles[rightPointer]);
+                        leftPointer++;
                         
                     }
 
-                    leftPointer++;
                     rightPointer--;
                 }
                 else
                 {
                     compressedDiskFiles.Add(diskFiles[leftPointer]);
-                    leftPointer++;
 
-                    if (diskFiles[rightPointer].Value == '.')
+                    if (diskFiles[rightPointer].Value == ".")
                     {
                         rightPointer--;
                     }
+
+                    leftPointer++;
                 }
 
                 //Console.WriteLine($"Left: {leftPointer} Right: {rightPointer}");
@@ -81,17 +79,13 @@
                 checksum += i * compressedDiskFiles[i].BlockId;
             }
 
-            //int lastSeenDigit = -1;
 
-            //for (int i = 0; i < compressedDiskFiles.Count; i++)
-            //{
-            //    if (compressedDiskFiles[i].Value != lastSeenDigit)
-            //    {
-            //        Console.Write(compressedDiskFiles[i].BlockId);
-            //        lastSeenDigit = compressedDiskFiles[i].Value;
-            //    }
-            //}
-            //Console.WriteLine();
+            for (int i = 0; i < compressedDiskFiles.Count; i++)
+            {
+                Console.Write(compressedDiskFiles[i].BlockId);
+            }
+
+            Console.WriteLine();
 
             return checksum;
         }
